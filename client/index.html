@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Home</title>
+<!--  -->
+        <!-- <script type="text/javascript" src="node_modules/angular/angular.min.js"></script> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script type="text/javascript" src="/node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+    <script type="text/javascript" src="/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+
+    <script type="text/javascript" src="main.js"></script>
+
+    </head>
+
+<body ng-app="fileUpload">
+        <h1>Angular Node File Upload</h1>
+        <br/><br/>
+        <form  ng-controller="MyCtrl" name="upload_form">
+          <div class="form-group">
+                <div class ="container">
+                <div class="row">
+                <div class="col-lg-6">
+                <div class="input-group">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                </div>
+                <select class="custom-select"  ng-model="selectedCategory.category_name" ng-options="x.category_name for x in category"></select>
+               
+              </div>
+           
+
+<br/><br/>
+<!--             <div class="input-group ">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">CATEGORY_ID</span>
+              </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" ng-model="selectedCategory.category_id" name="id" onfocus='this.blur()'>
+              </div> -->
+<br/><br/>
+ <!--            <div class="input-group ">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">PATH</span>
+              </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" ng-model="selectedCategory.path" name="path" onfocus='this.blur()'>
+              </div> -->
+<br/><br/>
+
+              <div class="input-group ">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">TITLE</span>
+              </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" ng-model="selectedCategory.category_title" placeholder="Enter TITLE  Here">
+              </div>
+              </div>
+              </div>
+<br/><br/>         <!-- TITLE:<input type="text " ng-model="up.title" /><br/> -->
+            <input 
+               type="file" 
+               ngf-select 
+               ng-model="selectedCategory.file" 
+               name="file" 
+               ngf-pattern="'.docx,.pdf,image/*'"
+               accept=".docx,.pdf,image/*" 
+               ngf-max-size="20MB" ngf-multiple="true"/>
+            Image thumbnail: <img style="width:50px;" ngf-thumbnail="file || 'thumb.png'"/><br/>
+         
+
+<br/><br/>
+            <button type="button" class="btn btn-success btn-lg" ng-click="submit(selectedCategory)">Submit</button>
+  </div>
+</div>
+        </form>
+        
+    </body>
+</html>
+   <!--  <body ng-app="fileUpload">
+        <h1>Angular Node File Upload</h1>
+        <form  ng-controller="MyCtrl as up" name="up.upload_form">
+                 Single Image with validations -->
+                <!-- <div class="dropdown show"> -->
+                <!-- <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown link
+                </a> -->  
+                 <!-- <select ng-model="selectedCategory" ng-options="item for item in categories"></select> -->
+                <!-- </div>
+               
+            <input 
+               type="file" 
+               ngf-select 
+               ng-model="up.file" 
+               name="file" 
+               ngf-pattern="'.docx,.pdf,image/*'"
+               accept=".docx,.pdf,image/*" 
+               ngf-max-size="20MB" multiple
+               />
+            Image thumbnail: <img style="width:100px;" ngf-thumbnail="up.file||abc.jpg  "/>
+            <i ng-show="up.upload_form.file.$error.required">*required</i><br>
+            <i ng-show="up.upload_form.file.$error.maxSize">File too large 
+            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+            <button type="submit" ng-click="up.submit()">submit</button>
+            <p>{{up.progress}}</p>
+        </form>
+    </body>
+     -->
